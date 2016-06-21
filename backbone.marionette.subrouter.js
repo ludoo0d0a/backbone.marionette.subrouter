@@ -2,15 +2,17 @@
 // (https://github.com/ModelN/backbone.subroute) by Dave Cadwallader
 
 
-(function (factory) {
+(function (root, factory) {
     if (typeof define === "function" && define.amd) {
-        define(["underscore", "backbone", "marionette"], factory);
+        define(["underscore", "backbone", "marionette"], function(_, Backbone, Marionette) {
+            return (factory(root, _, Backbone, Marionette));
+        });
     } else if (typeof exports !== "undefined") {
-        module.exports = factory(require("underscore"), require("backbone"), require("marionette"));
+        module.exports = factory(root, require("underscore"), require("backbone"), require("marionette"));
     } else {
-        factory(_, Backbone, Marionette);
+        factory(root, root._, root.Backbone, root.Marionette);
     }
-}(function(_, Backbone, Marionette) {
+}(function(root, _, Backbone, Marionette) {
     Marionette.SubRouter = Marionette.AppRouter.extend({
         constructor: function(options) {
  
