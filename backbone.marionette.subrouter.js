@@ -8,7 +8,7 @@
             return (factory(root, _, Backbone, Marionette));
         });
     } else if (typeof exports !== "undefined") {
-        module.exports = factory(root, require("underscore"), require("backbone"), require("marionette"));
+        module.exports = factory(root, require("underscore"), require("backbone"), require("backbone.marionette"));
     } else {
         factory(root, root._, root.Backbone, root.Marionette);
     }
